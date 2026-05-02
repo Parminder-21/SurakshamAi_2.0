@@ -45,6 +45,7 @@ android/.idea/.gitignore
 *.dex
 *.class
 android/app/google-services.json
+backend/firebase-credentials.json
 
 # ── OS files ──────────────────────────────────────────────────────────────────
 .DS_Store
