@@ -17,9 +17,9 @@ Suraksham AI is a privacy-first, India-focused fraud detection ecosystem that de
 
 ```
 suraksham-ai/
-├── backend/          # FastAPI + multi-agent backend (Groq LLaMA 3.3-70b)
-├── website/          # Next.js 14 cyber awareness portal
-├── android/          # Kotlin + Jetpack Compose mobile app
+├── backend/           # FastAPI + multi-agent backend (Groq LLaMA 3.3-70b)
+├── website/           # Next.js 14 cyber awareness portal
+├── android/           # Kotlin + Jetpack Compose mobile app
 └── docker-compose.yml
 ```
 
@@ -139,7 +139,7 @@ Falls back to 12 curated India-specific scam alerts covering all major categorie
 
 ## 🔗 URL Analysis
 
-The URL agent combines three detection layers:
+The URL agent combines four detection layers:
 1. **Phishing pattern engine** — trained on 789,054 real phishing URLs ([mitchellkrogza/Phishing.Database](https://github.com/mitchellkrogza/Phishing.Database))
 2. **Google Safe Browsing API** — real-time threat lookup
 3. **WHOIS domain age** — flags newly registered domains (< 90 days)
