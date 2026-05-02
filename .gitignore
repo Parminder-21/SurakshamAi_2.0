@@ -1,0 +1,65 @@
+# ── SECRETS (NEVER push these) ────────────────────────────────────────────────
+backend/.env
+website/.env.local
+android/local.properties
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Node / Next.js ────────────────────────────────────────────────────────────
+website/node_modules/
+website/.next/
+website/.env.local
+website/.env*.local
+website/npm-debug.log*
+website/yarn-debug.log*
+website/yarn-error.log*
+
+# ── Android ───────────────────────────────────────────────────────────────────
+android/local.properties
+android/.gradle/
+android/app/build/
+android/build/
+android/captures/
+android/.idea/workspace.xml
+android/.idea/navEditor.xml
+android/.idea/assetWizardSettings.xml
+android/.idea/.gitignore
+*.iml
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+android/app/google-services.json
+
+# ── OS files ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+*.log
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+*.env.production
+
+# ── Evaluation datasets (large files) ────────────────────────────────────────
+backend/evaluation/datasets/phishing_urls.txt
+backend/evaluation/datasets/phishing_active.txt
+backend/evaluation/datasets/sms_spam_kaggle.csv
+backend/evaluation/datasets/sms_spam_spacy.csv
+backend/evaluation/datasets/test_download.csv

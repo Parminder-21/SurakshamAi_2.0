@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Launcher icon background color -->
+    <color name="ic_launcher_background">#0F172A</color>
+
+    <!-- App colors -->
+    <color name="colorPrimary">#3B82F6</color>
+    <color name="colorPrimaryDark">#1E3A8A</color>
+    <color name="colorAccent">#22C55E</color>
+</resources>
