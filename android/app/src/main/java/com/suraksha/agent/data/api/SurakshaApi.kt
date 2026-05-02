@@ -16,7 +16,7 @@ interface SurakshaApi {
 
     @GET("news-feed/")
     suspend fun getNewsFeed(
-        @Query("limit") limit: Int = 10
+        @Query("limit") limit: Int = 10,
     ): List<NewsFeedItem>
 
     @POST("report-scam/")

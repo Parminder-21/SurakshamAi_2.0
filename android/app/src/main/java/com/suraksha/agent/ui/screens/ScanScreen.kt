@@ -45,7 +45,7 @@ private data class SampleChip(val label: String, val text: String)
 private val messageSamples = listOf(
     SampleChip(
         "KYC Scam",
-        "Dear Customer, Your SBI account KYC is expired. Account will be blocked in 24 hours. Update now: http://sbi-kyc-update.xyz/verify"
+        "Dear Customer, Your SBI account KYC is expired. Account will be blocked in 24 hours. Update now: http://sbi-kyc-update.xyz/verify",
     ),
     SampleChip(
         "UPI Fraud",
@@ -243,7 +243,7 @@ fun ScanScreen(vm: AnalyzeViewModel = viewModel()) {
                     ScanTab.CALL -> vm.analyzeCall(inputText)
                 }
             },
-            enabled = inputText.isNotBlank() && uiState !is AnalyzeUiState.Loading,
+            enabled = (inputText.isNotBlank() && uiState !is AnalyzeUiState.Loading),
             modifier = Modifier
                 .fillMaxWidth()
                 .height(52.dp),
@@ -288,13 +288,13 @@ fun ScanScreen(vm: AnalyzeViewModel = viewModel()) {
 @Composable
 fun MessageResultCard(result: AnalysisResult) {
     val riskLevel = result.riskLevel.toRiskLevel()
-    val (accentColor, bgColor, badgeLabel, badgeEmoji) = when (riskLevel) {
+    val (accentColor, _, badgeLabel, badgeEmoji) = when (riskLevel) {
         RiskLevel.HIGH_RISK -> listOf(DangerColor, Color(0xFF450A0A), "HIGH RISK", "🔴")
         RiskLevel.SUSPICIOUS -> listOf(WarnColor, Color(0xFF451A03), "SUSPICIOUS", "⚠️")
         RiskLevel.SAFE -> listOf(SafeColor, Color(0xFF052E16), "SAFE", "✅")
     }
 
-    var evidenceExpanded by remember { mutableStateOf(false) }
+    var evidenceExpanded by remember { mutableStateOf(value = false) }
 
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -339,7 +339,7 @@ fun MessageResultCard(result: AnalysisResult) {
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
-                            "${result.riskScore}",
+                            result.riskScore.toString(),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             color = accentColor

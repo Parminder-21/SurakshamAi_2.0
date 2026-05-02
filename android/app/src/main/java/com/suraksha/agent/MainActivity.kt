@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
 
     // Permission launcher — requests all scanner permissions on first launch
     private val permissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
+        ActivityResultContracts.RequestMultiplePermissions(),
     ) { results ->
         val allGranted = results.values.all { it }
         if (allGranted) {
@@ -128,9 +128,10 @@ fun SurakshaApp() {
                 HomeScreen(
                     onNavigateToScan = { navController.navigate(Screen.Scan.route) },
                     onNavigateToNews = { navController.navigate(Screen.News.route) },
-                    onNavigateToReport = { navController.navigate(Screen.Report.route) },
-                    onNavigateToShield = { navController.navigate(Screen.Shield.route) },
-                )
+                    onNavigateToReport = { navController.navigate(Screen.Report.route) }
+                ) {
+                    navController.navigate(Screen.Shield.route)
+                }
             }
             composable(Screen.Scan.route)    { ScanScreen() }
             composable(Screen.Shield.route)  { PermissionScreen() }

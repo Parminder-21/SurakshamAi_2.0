@@ -7,6 +7,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -46,7 +47,7 @@ fun HomeScreen(
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -151,7 +152,7 @@ fun HomeScreen(
             Triple(Icons.Default.EmojiEvents,     "Lottery Scams",        Color(0xFFA855F7)),
             Triple(Icons.Default.Key,             "OTP Theft",            Color(0xFFEF4444)),
             Triple(Icons.Default.Gavel,             "Digital Arrest",       Color(0xFFEC4899)),
-            Triple(Icons.Default.TrendingUp,      "Investment Scams",     Color(0xFF14B8A6)),
+            Triple(Icons.AutoMirrored.Filled.TrendingUp,      "Investment Scams",     Color(0xFF14B8A6)),
         )
 
         features.chunked(2).forEach { row ->
