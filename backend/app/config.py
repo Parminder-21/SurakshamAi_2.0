@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 from typing import List
+import secrets
 
 
 class Settings(BaseSettings):
@@ -22,7 +23,7 @@ class Settings(BaseSettings):
 
     # App
     app_env: str = "development"
-    secret_key: str = "change-me"
+    secret_key: str = ""
     allowed_origins: str = "http://localhost:3000"
     rate_limit_per_minute: int = 30
 
@@ -36,3 +37,8 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+if not settings.secret_key:
+    if settings.app_env == "production":
+        raise RuntimeError("SECRET_KEY must be set in production environment")
+    # Generate a runtime-only secret for development/testing to avoid insecure defaults
+    settings.secret_key = secrets.token_urlsafe(32)
